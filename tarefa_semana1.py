@@ -201,56 +201,52 @@ def classificar_como_paga_ou_gratuita (experiencia):
 # print (classificar_como_paga_ou_gratuita(1.9))
 
 
-# -------------------- Exercícios Semana 1 --------------------
-''' 1 Adicione os atributos sexo e idade aos usuários da rede.'''
+print ('-------------------- Exercício Semana 1 --------------------')
+print ('1 Adicione os atributos sexo e idade aos usuários da rede.\n')
 
-users[0]["sex"] = "M"
+users[0]["gender"] = "M"
 users[0]["age"] = 28
-users[1]["sex"] = "M"
+users[1]["gender"] = "M"
 users[1]["age"] = 36
-users[2]["sex"] = "F"
+users[2]["gender"] = "F"
 users[2]["age"] = 25
-users[3]["sex"] = "F"
+users[3]["gender"] = "F"
 users[3]["age"] = 33
-users[4]["sex"] = "M"
+users[4]["gender"] = "M"
 users[4]["age"] = 26
-users[5]["sex"] = "M"
+users[5]["gender"] = "M"
 users[5]["age"] = 28
-users[6]["sex"] = "M"
+users[6]["gender"] = "M"
 users[6]["age"] = 32
-users[7]["sex"] = "M"
+users[7]["gender"] = "M"
 users[7]["age"] = 30
-users[8]["sex"] = "F"
+users[8]["gender"] = "F"
 users[8]["age"] = 25
-users[9]["sex"] = "M"
+users[9]["gender"] = "M"
 users[9]["age"] = 39
 
-''' 2 Monte um dicionário que tem como chave o id do usuário e como valor uma tupla. O primeiro
+for user in users:
+    print ('User ID: ' + str(user['id']) + ' Idade: ' + str(user['age']) + ' Sexo: ' + user['gender'])
+
+
+print ('''\n2 Monte um dicionário que tem como chave o id do usuário e como valor uma tupla. O primeiro
 elemento da tupla deve ter a quantidade de amigos do sexo masculino e o segundo elemento da
 tupla deve ter a quantidade de amigos do sexo feminino. Escreva funções conforme achar
-apropriado.'''
-# def sex_by_user_id (user):
-#     return (Counter([
-#         friend['sex']
-#         for friend in user['friends']
-#     ]))
- 
-#  print (sex_by_user_id(users[0]))
+apropriado.''')
 
-def friends_per_sex_bad (user):
+def friends_per_gender_bad (user):
     Masc = 0
     Fem = 0
     for friend in user['friends']:
-        if friend['sex'] == 'M':
+        if friend['gender'] == 'M':
             Masc +=1
         else:
             Fem +=1
     return (Masc, Fem)
 
-# print (friends_per_sex_bad(users[8]))
 
-friends_of_each_sex = defaultdict(list)
+friends_of_each_gender = defaultdict(list)
 for user in users:
-    friends_of_each_sex[user['id']] = friends_per_sex_bad(user)
+    friends_of_each_gender[user['id']] = friends_per_gender_bad(user)
 
-print (friends_of_each_sex)
+print (friends_of_each_gender)
